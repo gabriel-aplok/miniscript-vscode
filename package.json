@@ -1,0 +1,34 @@
+{
+  "name": "msl",
+  "displayName": "miniscript-lang",
+  "description": "my own intepreted language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ms",
+        "aliases": [
+          "miniscript",
+          "ms"
+        ],
+        "extensions": [
+          ".ms"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ms",
+        "scopeName": "source.ms",
+        "path": "./syntaxes/ms.tmLanguage.json"
+      }
+    ]
+  }
+}
