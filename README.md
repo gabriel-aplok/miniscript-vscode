@@ -1,65 +1,44 @@
-# msl README
+# miniscript
 
-This is the README for your extension "msl". After writing up a brief description, we recommend including the following sections.
+miniscript is a lightweight, indentation-based scripting language inspired by gdscript, built using c# and .net 8.
 
-## Features
+## features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- indentation-based block syntax (like python/gdscript)
+- dynamic typing (numbers, strings, booleans, null)
+- first-class functions and closures
+- while loops and if/else statements
+- built-in functions with standard library support.
 
-For example if there is an image subfolder under your extension project workspace:
+## architecture
 
-\!\[feature X\]\(images/feature-x.png\)
+the project is divided into modular components:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **lexer**: converts raw text into tokens while tracking indentation levels.
+- **parser**: a recursive descent parser that builds an abstract syntax tree (ast).
+- **ast**: immutable nodes with c# records.
+- **runtime**: a tree-walking interpreter that manages scope and execution.
 
-## Requirements
+## getting started
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. `npm install -g @vscode/vsce`
+2. `vsce package`
+3. `code --install-extension msl-0.0.1.vsix`
 
-## Extension Settings
+## example syntax
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```python
+func greet(name):
+    print("hello " + name)
 
-For example:
+var count = 0
+while count < 3:
+    greet("developer")
+    count = count + 1
+```
 
-This extension contributes the following settings:
+you can see more examples in the `MiniScript.Interp/samples` folder.
 
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
+## license
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+this project is mit licensed, open-source and intended for educational purposes.
